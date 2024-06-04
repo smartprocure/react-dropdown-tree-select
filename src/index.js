@@ -364,6 +364,7 @@ class DropdownTreeSelect extends Component {
                   onNodeToggle={this.onNodeToggle}
                   mode={mode}
                   showPartiallySelected={this.props.showPartiallySelected}
+                  searchTerm={this.searchInput ? this.searchInput.value : ''}
                   {...commonProps}
                 />
               )}

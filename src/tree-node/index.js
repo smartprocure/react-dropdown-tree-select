@@ -10,6 +10,10 @@ import './index.css'
 
 const isLeaf = children => isEmpty(children)
 
+function nodeMatchesSearchTerm(label, searchTerm) {
+  return label.toLowerCase().includes(searchTerm.toLowerCase())
+}
+
 const getNodeCx = props => {
   const {
     keepTreeOnSearch,
@@ -25,6 +29,8 @@ const getNodeCx = props => {
     readOnly,
     checked,
     _focused: focused,
+    label,
+    searchTerm,
   } = props
 
   return [
@@ -39,6 +45,7 @@ const getNodeCx = props => {
     readOnly && 'readOnly',
     checked && 'checked',
     focused && 'focused',
+    nodeMatchesSearchTerm(label, searchTerm) && 'match',
     className,
   ]
     .filter(Boolean)
