@@ -1,5 +1,10 @@
 # react-dropdown-tree-select
 
+## ⚠️ Why forking?
+When using this library and searching by a term, we would like for items in the hierarchy that has the search term within to be bold, and items without my search term to be faded. Before, we were only able to bold the children nodes (leafs) at the last level of the hierarchy, now, with the patch, we are able to embolden all matching nodes.
+
+Check [GS-6799](https://govspend.atlassian.net/browse/GS-6799) out to in-depth details.
+
 ---
 
 [![NPM version][npm-image]][npm-url] [![gzip][gzip-image]][gzip-url] [![npm download][download-image]][npm-url]
