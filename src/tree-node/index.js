@@ -9,9 +9,21 @@ import Toggle from './toggle'
 import './index.css'
 
 const isLeaf = children => isEmpty(children)
+const WHITESPACES_REGEX = new RegExp('\\s+', 'g')
+
+/**
+ * Trims and remove duplicate whitespace given a string
+ * @param {string} value - The string to sanitize
+ * @returns {string} The sanitized string
+ */
+const collapseWhitespace = value => {
+  return value.replace(WHITESPACES_REGEX, ' ').trim()
+}
 
 function nodeMatchesSearchTerm(label, searchTerm) {
-  return label.toLowerCase().includes(searchTerm.toLowerCase())
+  const sanitizedLabel = collapseWhitespace(label.toLowerCase())
+  const sanitizedSearchTerm = collapseWhitespace(searchTerm.toLowerCase())
+  return sanitizedLabel.includes(sanitizedSearchTerm)
 }
 
 const getNodeCx = props => {
